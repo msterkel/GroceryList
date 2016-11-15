@@ -2,13 +2,28 @@ function addItem(){
 var input = document.getElementById("newItem").value;
 var list = document.getElementById("listDisplay");
 var item = document.createElement("li");
+var  btnClose =document.createElement("button");
+ btnClose.classList.add("btn");
+  btnClose.classList.add("btn-danger");
+   btnClose.classList.add("btn-xs");
+
+var iconClose= document.createElement("span") ;
+iconClose.classList.add("glyphicon");
+iconClose.classList.add("glyphicon-remove");
+ btnClose.appendChild(iconClose);
+
 var itemName = document.createTextNode(input);
  item.appendChild(itemName);
-  list.appendChild(item);
-document.getElementById("newItem").innerHTML="";
-console.log(input);
+  item.appendChild(btnClose);
+   list.appendChild(item);
+    document.getElementById("newItem").innerHTML="";
+    console.log(input);
 }
 
+function removeParentListItem(){
+ 
+
+}
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
