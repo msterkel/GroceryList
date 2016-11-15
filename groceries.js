@@ -6,7 +6,7 @@ var  btnClose =document.createElement("button");
  btnClose.classList.add("btn");
   btnClose.classList.add("btn-danger");
    btnClose.classList.add("btn-xs");
-
+    btnClose.addEventListener("click", removeParentListItem);
 var iconClose= document.createElement("span") ;
 iconClose.classList.add("glyphicon");
 iconClose.classList.add("glyphicon-remove");
@@ -21,8 +21,9 @@ var itemName = document.createTextNode(input);
 }
 
 function removeParentListItem(){
- 
-
+ var mom = this.parentNode;
+ var grandma = mom.parentNode;
+ grandma.removeChild(mom);
 }
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
