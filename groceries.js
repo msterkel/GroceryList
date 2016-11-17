@@ -1,5 +1,13 @@
+var myList= [];
 function addItem(){
 var input = document.getElementById("newItem").value;
+Find = myList.indexOf(input);
+if(Find == -1){
+   myList.push(input);
+ }
+console.log(myList)
+
+
 var list = document.getElementById("listDisplay");
 var item = document.createElement("li");
 var  btnClose =document.createElement("button");
