@@ -4,8 +4,8 @@ var input = document.getElementById("newItem").value;
 Find = myList.indexOf(input);
 if(Find == -1){
    myList.push(input);
- }
-console.log(myList)
+
+console.log(myList);
 
 
 var list = document.getElementById("listDisplay");
@@ -26,12 +26,16 @@ var itemName = document.createTextNode(input);
    list.appendChild(item);
     document.getElementById("newItem").innerHTML="";
     console.log(input);
+}    
 }
 
 function removeParentListItem(){
  var mom = this.parentNode;
- var grandma = mom.parentNode;
- grandma.removeChild(mom);
+  var grandma = mom.parentNode;
+   grandma.removeChild(mom);
+   var itemRemove = mom.firstChild.textContent;
+    var itemIndex = mylist.indexOf(itemRemove);
+    myList.splice(itemIndex,1);
 }
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
