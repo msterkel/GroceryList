@@ -1,11 +1,13 @@
 var myList= [];
+var stringList = ""
+
 function addItem(){
 var input = document.getElementById("newItem").value;
 Find = myList.indexOf(input);
 if(Find == -1){
    myList.push(input);
 
-console.log(myList);
+
 
 
 var list = document.getElementById("listDisplay");
@@ -26,7 +28,7 @@ var itemName = document.createTextNode(input);
    list.appendChild(item);
     document.getElementById("newItem").innerHTML="";
     console.log(input);
-}    
+}
 }
 
 function removeParentListItem(){
@@ -36,7 +38,21 @@ function removeParentListItem(){
    var itemRemove = mom.firstChild.textContent;
     var itemIndex = mylist.indexOf(itemRemove);
     myList.splice(itemIndex,1);
+
+
 }
+function saveList(){
+
+   stringList = myList.join();
+   setCookie("cookieList",stringList,1);
+   console.log(myList);
+}
+function clearList(){
+  document.getElementById("listDisplay").innerHTML="";
+  myList=[]
+}
+
+
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
