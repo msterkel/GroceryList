@@ -1,15 +1,15 @@
+window.onload=loadCookieList;
 var myList= [];
 var stringList = ""
 
 function addItem(){
 var input = document.getElementById("newItem").value;
-Find = myList.indexOf(input);
-if(Find == -1){
-   myList.push(input);
-
-
-
-
+displayItem(input);
+}
+function displayItem(input){
+  var Find = myList.indexOf(input);
+  if(Find == -1){
+     myList.push(input);
 var list = document.getElementById("listDisplay");
 var item = document.createElement("li");
 var  btnClose =document.createElement("button");
@@ -31,6 +31,7 @@ var itemName = document.createTextNode(input);
 }
 }
 
+
 function removeParentListItem(){
  var mom = this.parentNode;
   var grandma = mom.parentNode;
@@ -50,6 +51,16 @@ function saveList(){
 function clearList(){
   document.getElementById("listDisplay").innerHTML="";
   myList=[]
+}
+
+function loadCookieList(){
+var cook = getCookie("cookieList");
+var arrayCookie =cook.split(",");
+
+for(var i=0; i< arrayCookie.length; i++)
+{
+  displayItem(arrayCookie[i]);
+}
 }
 
 
